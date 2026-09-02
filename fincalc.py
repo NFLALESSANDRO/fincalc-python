@@ -7,7 +7,12 @@ def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> floa
     return capital + juros
 
 
-def calcular_aposentadoria(patrimonio_atual: float, aporte_mensal: float, anos: int, taxa_anual: float) -> float:
+def calcular_aposentadoria(
+    patrimonio_atual: float,
+    aporte_mensal: float,
+    anos: int,
+    taxa_anual: float,
+) -> float:
     """Calcula o patrimônio acumulado para aposentadoria."""
     meses = anos * 12
     taxa_mensal = (taxa_anual / 100) / 12
