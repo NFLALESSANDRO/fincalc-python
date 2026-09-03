@@ -36,3 +36,9 @@ if __name__ == "__main__":
     print(f"Juros Compostos: R$ {montante_comp:.2f}")
     patrimonio = calcular_aposentadoria(10000.0, 500.0, 20, 6.0)
     print(f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}")
+
+
+def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
+    """Calcula a taxa de retorno real descontada a inflação do período."""
+    retorno_real = ((1 + (ganho_nominal / 100)) / (1 + (inflacao / 100))) - 1
+    return retorno_real * 100
