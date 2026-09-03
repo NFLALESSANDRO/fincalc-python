@@ -28,6 +28,14 @@ def calcular_aposentadoria(
     return saldo
 
 
+def calcular_parcela_price(valor_emprestimo: float, taxa_mensal: float, meses: int) -> float:
+    """Calcula o valor da parcela fixa em um financiamento pela Tabela Price."""
+    i = taxa_mensal / 100
+    parcela = valor_emprestimo * (i * ((1 + i) ** meses)) / (((1 + i) ** meses) - 1)
+    return parcela
+
+
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
     montante = calcular_juros_simples(1000.0, 5.0, 2)
