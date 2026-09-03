@@ -36,3 +36,7 @@ if __name__ == "__main__":
     print(f"Juros Compostos: R$ {montante_comp:.2f}")
     patrimonio = calcular_aposentadoria(10000.0, 500.0, 20, 6.0)
     print(f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}")
+
+    def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
+        """Converte uma taxa de juros anual equivalente para taxa mensal."""
+        return (((1 + (taxa_anual / 100)) ** (1 / 12)) - 1) * 100
