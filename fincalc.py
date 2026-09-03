@@ -9,8 +9,8 @@ def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> floa
 
 def calcular_juros_compostos(capital: float, taxa_anual: float, anos: int) -> float:
     """Calcula o montante final obtido por juros compostos."""
-    resultado_montante = capital * ((1 + (taxa_anual / 100)) ** anos)
-    return resultado_montante
+    montante = capital * ((1 + (taxa_anual / 100)) ** anos)
+    return montante
 
 
 def calcular_aposentadoria(
