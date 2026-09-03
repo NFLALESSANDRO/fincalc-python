@@ -5,10 +5,12 @@ def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> floa
     juros = capital * (taxa_anual / 100) * anos
     return capital + juros
 
+
 def calcular_juros_compostos(capital: float, taxa_anual: float, anos: int) -> float:
     """Calcula o montante final obtido por juros compostos."""
     montante = capital * ((1 + (taxa_anual / 100)) ** anos)
     return montante
+
 
 def calcular_aposentadoria(
     patrimonio_atual: float,
@@ -24,6 +26,7 @@ def calcular_aposentadoria(
         saldo = (saldo + aporte_mensal) * (1 + taxa_mensal)
     return saldo
 
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
     montante = calcular_juros_simples(1000.0, 5.0, 2)
@@ -32,5 +35,3 @@ if __name__ == "__main__":
     print(f"Juros Compostos: R$ {montante_comp:.2f}")
     patrimonio = calcular_aposentadoria(10000.0, 500.0, 20, 6.0)
     print(f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}")
-    
-
