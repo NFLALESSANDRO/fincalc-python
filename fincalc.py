@@ -1,4 +1,5 @@
-# FinCalc - Sistema de Cálculos Financeiros em Python
+"""FinCalc - Sistema de Cálculos Financeiros em Python."""
+
 
 def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> float:
     """Calcula o montante final obtido por juros simples."""
