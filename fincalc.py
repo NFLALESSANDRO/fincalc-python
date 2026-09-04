@@ -47,3 +47,14 @@ def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
 def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
     """Converte uma taxa de juros anual equivalente para taxa mensal."""
     return (((1 + (taxa_anual / 100)) ** (1 / 12)) - 1) * 100
+
+
+def calcular_irrf(salario_bruto: float) -> float:
+    """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
+    if salario_bruto <= 2259.20:
+        return 0.0
+    if salario_bruto <= 2826.65:
+        return (salario_bruto * 0.075) - 169.44
+    if salario_bruto <= 3751.05:
+        return (salario_bruto * 0.15) - 381.44
+    return (salario_bruto * 0.225) - 662.77
