@@ -58,3 +58,12 @@ def calcular_irrf(salario_bruto: float) -> float:
     if salario_bruto <= 3751.05:
         return (salario_bruto * 0.15) - 381.44
     return (salario_bruto * 0.225) - 662.77
+
+
+def calcular_valor_futuro(
+    aporte_mensal: float, taxa_mensal: float, meses: int
+) -> float:
+    """Calcula o valor futuro acumulado com aportes mensais recorrentes."""
+    i = taxa_mensal / 100
+    vf = aporte_mensal * (((1 + i) ** meses - 1) / i)
+    return vf
