@@ -28,6 +28,18 @@ def calcular_aposentadoria(
     return saldo
 
 
+def calcular_parcela_price(
+    valor_emprestimo: float,
+    taxa_mensal: float,
+    meses: int,
+) -> float:
+    """Calcula o valor da parcela fixa em um financiamento pela Tabela Price."""
+    i = taxa_mensal / 100
+    fator = (1 + i) ** meses
+    parcela = valor_emprestimo * (i * fator) / (fator - 1)
+    return parcela
+
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
     montante = calcular_juros_simples(1000.0, 5.0, 2)
@@ -36,6 +48,8 @@ if __name__ == "__main__":
     print(f"Juros Compostos: R$ {montante_comp:.2f}")
     patrimonio = calcular_aposentadoria(10000.0, 500.0, 20, 6.0)
     print(f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}")
+    parcela = calcular_parcela_price(50000.0, 1.2, 48)
+    print(f"Parcela Fixa (Tabela Price): R$ {parcela:.2f}")
 
 
 def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
