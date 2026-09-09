@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fincalc-python"
+version = "1.0.0"
+description = "Biblioteca de cálculos financeiros em Python"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "NFLALESSANDRO" }]
+license = "MIT"
+keywords = ["finance", "interest", "loans", "retirement", "python"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial",
+]
+
+[project.urls]
+Homepage = "https://github.com/NFLALESSANDRO/fincalc-python"
+Repository = "https://github.com/NFLALESSANDRO/fincalc-python"
+
+[tool.setuptools]
+py-modules = ["fincalc"]
