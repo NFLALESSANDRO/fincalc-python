@@ -22,3 +22,4 @@ def test_juros_compostos_tempo_negativo():
     # Arrange, Act & Assert
     with pytest.raises(ValueError):
         calcular_juros_compostos(1000.0, 5.0, -1)
+
