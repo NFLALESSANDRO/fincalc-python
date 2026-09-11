@@ -100,13 +100,13 @@ def calcular_margem_liquida(receita_total: float, custos_totais: float) -> float
     return (lucro / receita_total) * 100
 
 
-def calcular_valor_futuro(
-    aporte_mensal: float, taxa_mensal: float, meses: int
-) -> float:
-    """Calcula o valor futuro acumulado com aportes mensais recorrentes."""
-    i = taxa_mensal / 100
-    vf = aporte_mensal * (((1 + i) ** meses - 1) / i)
-    return vf
+def calcular_valor_futuro(aporte, taxa, periodos):
+    if aporte < 0:
+        raise ValueError("O aporte não pode ser negativo.")
+        
+    i = taxa / 100
+    return aporte * (((1 + i) ** periodos - 1) / i) * (1 + i)
+
 
 
 def calcular_depreciacao_linear(
