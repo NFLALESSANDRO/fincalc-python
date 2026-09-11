@@ -67,6 +67,8 @@ def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
 
 def calcular_irrf(salario_bruto: float) -> float:
     """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
+    if salario_bruto < 0:
+        raise ValueError("Salário bruto não pode ser negativo.")
     if salario_bruto <= 2259.20:
         return 0.0
     if salario_bruto <= 2826.65:
