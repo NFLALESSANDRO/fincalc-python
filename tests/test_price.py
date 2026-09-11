@@ -1,6 +1,7 @@
 import pytest
 from fincalc import calcular_parcela_price
 
+
 def test_price_financiamento_padrao():
 
     # Arrange & Act
