@@ -15,7 +15,6 @@ def calcular_juros_compostos(capital: float, taxa_anual: float, anos: int) -> fl
         raise ValueError("O capital não pode ser negativo.")
     if anos < 0:
         raise ValueError("O tempo em anos não pode ser negativo.")
-    
     montante = capital * ((1 + (taxa_anual / 100)) ** anos)
     return montante
 
@@ -41,7 +40,13 @@ def calcular_parcela_price(
     meses: int,
 ) -> float:
     """Calcula o valor da parcela fixa em um financiamento pela Tabela Price."""
+    if valor_emprestimo < 0:
+        raise ValueError("Valor do empréstimo não pode ser negativo.")
+    if meses <= 0:
+        raise ValueError("Número de meses deve ser maior que zero.")
     i = taxa_mensal / 100
+    if i == 0:
+        return valor_emprestimo / meses
     fator = (1 + i) ** meses
     parcela = valor_emprestimo * (i * fator) / (fator - 1)
     return parcela
@@ -67,6 +72,8 @@ def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
 
 def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
     """Converte uma taxa de juros anual equivalente para taxa mensal."""
+    if taxa_anual < -100:
+        raise ValueError("Taxa anual não pode ser menor que -100%.")
     return (((1 + (taxa_anual / 100)) ** (1 / 12)) - 1) * 100
 
 
