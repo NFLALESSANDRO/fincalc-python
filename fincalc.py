@@ -66,6 +66,10 @@ if __name__ == "__main__":
 
 def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
     """Calcula a taxa de retorno real descontada a inflação do período."""
+
+    if inflacao == -100.0:
+        raise ValueError("A inflação não pode ser igual a -100%, pois causa divisão por zero.")
+
     retorno_real = ((1 + (ganho_nominal / 100)) / (1 + (inflacao / 100))) - 1
     return retorno_real * 100
 
