@@ -72,7 +72,8 @@ def calcular_rendimento_real(ganho_nominal: float, inflacao: float) -> float:
 
 def converter_taxa_anual_para_mensal(taxa_anual: float) -> float:
     """Converte uma taxa de juros anual equivalente para taxa mensal."""
-
+    if taxa_anual < -100:
+        raise ValueError("A taxa anual não pode ser menor que -100")
     return (((1 + (taxa_anual / 100)) ** (1 / 12)) - 1) * 100
 
 
